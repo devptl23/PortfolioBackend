@@ -5,6 +5,7 @@ import contactRoutes from "./server/routes/contact.routes.js";
 import projectRoutes from "./server/routes/project.routes.js";
 import qualificationRoutes from "./server/routes/education.routes.js";
 import userRoutes from "./server/routes/user.routes.js";
+import authRoutes from "./server/routes/auth.routes.js";
 mongoose.Promise = global.Promise;
 mongoose
   .connect(config.mongoUri, {
@@ -22,10 +23,11 @@ mongoose.connection.on("error", () => {
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to User application." });
 });
-app.use('/api/contacts', contactRoutes);
-app.use('/api/projects', projectRoutes);
-app.use('/api/qualifications', qualificationRoutes);
-app.use('/api/users', userRoutes);
+app.use("/api/contacts", contactRoutes);
+app.use("/api/projects", projectRoutes);
+app.use("/api/qualifications", qualificationRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 app.listen(config.port, (err) => {
   if (err) {
     console.log(err);
