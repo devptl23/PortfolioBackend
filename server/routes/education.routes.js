@@ -10,6 +10,7 @@ import {
 
 const router = express.Router();
 
+// Exposes qualification endpoints (aka education) under /api/qualifications.
 router
   .route("/")
   .get(getEducations)

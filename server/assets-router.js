@@ -1,6 +1,7 @@
 import express from "express";
 //const express = require("express");
 const router = express.Router();
+// Asset proxy keeps dev builds working while the API runs on a separate port.
 const imageRegex = /\/.+\.(svg|png|jpg|png|jpeg)$/; // You can add other image formats
 const videoRegex = /\/.+\.(mp4|ogv)$/;
 router.get(imageRegex, (req, res) => {

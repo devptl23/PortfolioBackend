@@ -1,3 +1,4 @@
+// Configuration centralizes environment-dependent values (DB URI, ports, secrets).
 const config = {
   env: process.env.NODE_ENV || 'development',
   port: process.env.PORT || 3000,

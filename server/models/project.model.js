@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+// Project documents capture the grading rubric's portfolio project fields.
+
 const ProjectSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },

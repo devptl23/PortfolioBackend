@@ -6,6 +6,7 @@ import cors from "cors";
 import helmet from "helmet";
 
 const app = express();
+// Core middleware stack that every request needs before reaching feature routers.
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ app.use(cookieParser());
 app.use(compress());
 app.use(helmet());
 app.use(cors());
+// Centralized error handler so auth and validation issues return consistent JSON payloads.
 app.use((err, req, res, next) => {
   if (err.name === "UnauthorizedError") {
     res.status(401).json({ error: err.name + ": " + err.message });

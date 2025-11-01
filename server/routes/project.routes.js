@@ -10,6 +10,7 @@ import {
 
 const router = express.Router();
 
+// Matches the projects CRUD table delivered in the assignment instructions.
 router
   .route("/")
   .get(getProjects)

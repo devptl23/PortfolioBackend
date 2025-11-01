@@ -1,3 +1,4 @@
+// Centralizes translation of Mongo + Mongoose errors into user-friendly strings.
 const getUniqueErrorMessage = (err) => {
   let output;
   try {

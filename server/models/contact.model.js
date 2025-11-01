@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+// Contact schema reflects the Assignment 2 contact form fields.
+
 const ContactSchema = new mongoose.Schema(
   {
     firstname: { type: String, required: true },

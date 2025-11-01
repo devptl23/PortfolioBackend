@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import crypto from "crypto";
 
+// User schema stores salted hashes to keep plain-text credentials out of MongoDB.
+
 const UserSchema = new mongoose.Schema(
   {
     name: {

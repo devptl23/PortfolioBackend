@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+// Qualification schema mirrors the education checklist from the assignment brief.
+
 const EducationSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },

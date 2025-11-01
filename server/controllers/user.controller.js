@@ -1,6 +1,8 @@
 import User from "../models/user.model.js";
 import extend from "lodash/extend.js";
 import errorHandler from "./error.controller.js";
+
+// User controller wires CRUD operations to the authentication layer's authorization checks.
 const create = async (req, res) => {
   const user = new User(req.body);
   try {
@@ -74,6 +76,7 @@ const remove = async (req, res) => {
 };
 const removeAll = async (req, res) => {
   try {
+    // Supports the "DELETE api/users" requirement for bulk cleanup.
     await User.deleteMany();
     return res.status(200).json({ message: "All users removed" });
   } catch (err) {

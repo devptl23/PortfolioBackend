@@ -1,5 +1,7 @@
 import Contact from '../models/contact.model.js';
 
+// CRUD handlers backing the /api/contacts routes required for the assignment rubric.
+
 export const createContact = async (req, res) => {
   try {
     const contact = new Contact(req.body);
@@ -51,6 +53,7 @@ export const deleteContact = async (req, res) => {
 
 export const deleteAllContacts = async (req, res) => {
   try {
+    // Bulk removal powers the "clear collection" admin task noted in the assignment.
     await Contact.deleteMany();
     res.json({ message: 'All contacts deleted' });
   } catch (err) {

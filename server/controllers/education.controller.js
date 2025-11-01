@@ -1,5 +1,7 @@
 import Education from '../models/education.model.js';
 
+// Qualification CRUD endpoints extracted so routing layer stays thin.
+
 export const createEducation = async (req, res) => {
   try {
     const education = new Education(req.body);
@@ -51,6 +53,7 @@ export const deleteEducation = async (req, res) => {
 
 export const deleteAllEducations = async (req, res) => {
   try {
+    // Useful during demos when we need to reseed the qualifications collection.
     await Education.deleteMany();
     res.json({ message: 'All educations deleted' });
   } catch (err) {

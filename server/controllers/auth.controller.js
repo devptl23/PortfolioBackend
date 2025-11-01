@@ -2,6 +2,8 @@ import User from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import { expressjwt } from "express-jwt";
 import config from "./../../config/config.js";
+
+// Handles credential verification and JWT issuing for protected routes.
 const signin = async (req, res) => {
   try {
     console.log("signin invoked for", req.body.email);
@@ -28,6 +30,7 @@ const signin = async (req, res) => {
     return res.status(500).json({ error: "Could not sign in" });
   }
 };
+// Explicitly clears the auth cookie so the browser forgets the token.
 const signout = (req, res) => {
   res.clearCookie("t", {
     path: "/",
@@ -45,6 +48,7 @@ export const requireSignin = expressjwt({
   requestProperty: "auth"
 });
 
+// Validates that the current token owner matches the resource owner before mutating data.
 const hasAuthorization = (req, res, next) => {
   const authorized = req.profile && req.auth && req.profile._id == req.auth._id;
   if (!authorized) {

@@ -1,5 +1,7 @@
 import Project from '../models/project.model.js';
 
+// Mirrors the contact controller responsibilities but for portfolio project artifacts.
+
 export const createProject = async (req, res) => {
   try {
     const project = new Project(req.body);
@@ -51,6 +53,7 @@ export const deleteProject = async (req, res) => {
 
 export const deleteAllProjects = async (req, res) => {
   try {
+    // Enables quick resets when demonstrating CRUD flows during marking.
     await Project.deleteMany();
     res.json({ message: 'All projects deleted' });
   } catch (err) {

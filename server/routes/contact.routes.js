@@ -10,6 +10,7 @@ import {
 
 const router = express.Router();
 
+// REST surface for contacts reflecting the assignment's CRUD matrix.
 router.route('/')
   .get(getContacts)
   .post(createContact)

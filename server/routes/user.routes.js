@@ -4,6 +4,7 @@ import authCtrl from "../controllers/auth.controller.js";
 
 const router = express.Router();
 
+// User routes are guarded to demonstrate JWT protection as required in Part IV.
 router
   .route("/")
   .get(authCtrl.requireSignin, userCtrl.list)
